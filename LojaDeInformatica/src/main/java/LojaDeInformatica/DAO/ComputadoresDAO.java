@@ -113,7 +113,7 @@ public class ComputadoresDAO {
             
             conexao = DriverManager.getConnection(URL, "root", "");
             
-            instrucaoSQL = conexao.prepareStatement("UPDATE computadores SET HD = ?, Processadores = ?");
+            instrucaoSQL = conexao.prepareStatement("UPDATE computadores SET HD = ?, Processadores = ? WHERE Id = ?");
             
             //Adiciono os parâmetros ao meu comando SQL
             instrucaoSQL.setString(1, p.getHD());
@@ -170,7 +170,7 @@ public class ComputadoresDAO {
             
             conexao = DriverManager.getConnection(URL, "root", "");
             
-            instrucaoSQL = conexao.prepareStatement("DELETE FROM computadores WHERE Processadores = ?");
+            instrucaoSQL = conexao.prepareStatement("DELETE FROM computadores WHERE Id = ?");
             
             //Adiciono os parâmetros ao meu comando SQL
             instrucaoSQL.setInt(1, pID);
@@ -275,7 +275,7 @@ public class ComputadoresDAO {
         try {
             
             conexao = GerenciadorConexao.abrirConexao();
-            instrucaoSQL = conexao.prepareStatement("SELECT * FROM cliente WHERE nome LIKE ?;");
+            instrucaoSQL = conexao.prepareStatement("SELECT * FROM computadores WHERE Id = ?;");
             
             //Adiciono os parâmetros ao meu comando SQL
             instrucaoSQL.setString(1,"%" + pNome + '%' );
@@ -285,8 +285,8 @@ public class ComputadoresDAO {
             while(rs.next())
             {
                 Computador c = new Computador();
-                c.setHD(rs.getString("idcliente"));
-                c.setProcessador(rs.getString("nome"));
+                c.setHD(rs.getString("Hd"));
+                c.setProcessador(rs.getString("Processador"));
                 listaComputadores.add(c);
             }
             
