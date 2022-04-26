@@ -206,7 +206,7 @@ public class ComputadoresDAO {
         return retorno;
     }
     
-    public static ArrayList<Computador> consultarClientes()
+    public static ArrayList<Computador> consultarComputador()
     {
         ResultSet rs = null;
         Connection conexao = null;
@@ -236,8 +236,8 @@ public class ComputadoresDAO {
             while(rs.next())
             {
                 Computador c = new Computador();
-                c.setHD(rs.getString("idcliente"));
-                c.setProcessador(rs.getString("nome"));
+                c.setHD(rs.getString("HD"));
+                c.setProcessador(rs.getString("Processador"));
                 
                 //Adiciono na listaClientes
                 listaComputadores.add(c);
@@ -264,7 +264,7 @@ public class ComputadoresDAO {
         return listaComputadores;
     }
     
-    public static ArrayList<Computador> consultarClientes(String pNome)
+    public static ArrayList<Computador> consultarComputador(String pNome)
     {
         ResultSet rs = null;
         Connection conexao = null;
