@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package LojaDeInformatica;
+package LojaDeInformatica.View;
 
+import LojaDeInformatica.Model.Computador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
